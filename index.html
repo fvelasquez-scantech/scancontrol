@@ -13,7 +13,6 @@
   <link rel="shortcut icon" type="image/x-icon" href="images/demonio.ico" />
 </head>
 <body>  
-  <h2>push test</h2>
   <div class="container">
     <br>
     <div class="row row-cols-1 pb-2">
@@ -67,7 +66,7 @@
             var size = data.records.length;
 
             for(i=0; i<size; i++){
-              var cadena= data.records[i].cliente
+              var cadena= data.records[i].nombre_cliente
               var span;
 
               if (data.records[i].estado == 'online') { 
@@ -80,7 +79,7 @@
                 $("#num"+i).css("opacity","0.5");
               } 
 
-              $("#num"+i).html("<div class='card-header p-0'>" + data.records[i].cliente.toUpperCase() + "</div><div class='card-body'><p class='card-text'> " + 
+              $("#num"+i).html("<div class='card-header p-0'>" + data.records[i].nombre_cliente.toUpperCase() + "</div><div class='card-body'><p class='card-text'> " + 
                                 data.records[i].info.toUpperCase() + "<br>" + 
                                 data.records[i].descripcion.toUpperCase() + "<br>" + 
                                 "</p></div><div class='card-footer p-0'>" + span + "</div></div>"); 
