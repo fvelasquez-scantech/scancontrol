@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>PANCHODEV</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+  <link href='https://fonts.googleapis.com/css?family=Bangers' rel='stylesheet'>
+  <link rel="stylesheet" type="text/css" href="css/custom.css">
+  <link rel="shortcut icon" type="image/x-icon" href="images/demonio.ico" />
+</head>
+<body>  
+  <div class="container">
+    <br>
+    <div class="row row-cols-1 pb-2">
+      <div class="card-deck">
+        <div class="card text-center" id="num0"></div>
+        <div class="card text-center" id="num1"></div>
+        <div class="card text-center" id="num2"></div>
+        <div class="card text-center" id="num3"></div>
+      </div>
+    </div> 
+
+    <div class="row row-cols-1 pb-2">
+      <div class="card-deck">
+        <div class="card text-center" id="num4"></div>
+        <div class="card text-center" id="num5"></div>
+        <div class="card text-center" id="num6"></div>
+        <div class="card text-center" id="num7"></div>
+      </div>
+    </div> 
+
+    <div class="row row-cols-1 pb-2">
+      <div class="card-deck">
+        <div class="card text-center" id="num8"></div>
+        <div class="card text-center" id="num9"></div>
+        <div class="card text-center" id="num10"></div>
+        <div class="card text-center" id="num11"></div>
+      </div>
+    </div> 
+
+    <div class="row row-cols-1 pb-2">
+      <div class="card-deck last">
+        <div class="card text-center" id="num12"></div>
+        <div class="card text-center" id="num13"></div>
+        <div class="card text-center" id="num14"></div>
+        <div class="card text-center" id="num15"></div>
+      </div>
+    </div>    
+  </div>
+
+  <script type="text/javascript">  
+    $(document).ready(function() { 
+
+      function datos(){
+        var data
+        $.ajax({
+          dataType: 'json',
+          url: 'http://scantech.cl/api/balanza/read.php',
+          data: data,
+
+          success: function(data) {
+            var size = data.records.length;
+
+            for(i=0; i<size; i++){
+              var cadena= data.records[i].cliente
+              var span;
+
+              if (data.records[i].estado == 'online') { 
+                span = "<span class='blink_me'>"+ data.records[i].estado.toUpperCase() + "!!</span>";
+
+                $("#num"+i).css("opacity","1");
+              }else {
+                span = "<span style='color:darkred'>"+ data.records[i].estado.toUpperCase() + "</span>";
+
+                $("#num"+i).css("opacity","0.5");
+              } 
+
+              $("#num"+i).html("<div class='card-header p-0'>" + data.records[i].cliente.toUpperCase() + "</div><div class='card-body'><p class='card-text'> " + 
+                                data.records[i].info.toUpperCase() + "<br>" + 
+                                data.records[i].descripcion.toUpperCase() + "<br>" + 
+                                "</p></div><div class='card-footer p-0'>" + span + "</div></div>"); 
+            }
+          },
+        })
+      }
+
+      setInterval(datos,1000);
+    })
+  </script>
+</body>
+</html>
