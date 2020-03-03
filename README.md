@@ -3,7 +3,7 @@
 # scancontrol
 Monitoreo de red mediante Http request
 
-### Read.json
+### Get request
 > https://scantech.cl/api/balanzas/read.php
 
 ### Detalle
