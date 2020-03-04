@@ -20,7 +20,14 @@
 	    $("#image-detail").on("click", function(event) {
 	        var x = event.pageX - this.offsetLeft;
 	        var y = event.pageY - this.offsetTop;
-	        //alert("X Coordinate: " + x + " Y Coordinate: " + y);
+	        alert("X Coordinate: " + x + " Y Coordinate: " + y);
+
+	        // Cabezal
+	        if(y >= 348 && y <= 374) {
+	        	if(x >= 151 && x <= 205) {
+	        		alert("LK200");
+		        }
+		    }
 
 	        // Paleta #1
 	        if(y >= 186 && y <= 207) {
@@ -49,9 +56,9 @@
 <body>  
 	<div class="container">
 		<div class="text-center mt-3">
-			<a href="#test">
+			<!--<a href="#test">-->
 				<img id="image-detail" src="images/CL3500-1.jpg"/>
-			</a>
+			<!--</a>-->
 		</div>		
 	</div>
 </body>
