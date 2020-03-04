@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+
+  <style>
+  	#image-detail {
+  		width: 700px;
+  		height: 650px;
+  	}
+  </style>
+
+  <script>
+  	$(document).ready(function() {
+	    $("#image-detail").on("click", function(event) {
+	        var x = event.pageX - this.offsetLeft;
+	        var y = event.pageY - this.offsetTop;
+	        //alert("X Coordinate: " + x + " Y Coordinate: " + y);
+
+	        // Paleta #1
+	        if(y >= 186 && y <= 207) {
+	        	if(x >= 238 && x <= 320) {
+	        		alert("Paleta #1");
+		        }
+		    }
+
+		    // Paleta #2
+		    if(y >= 163 && y <= 181) {
+	        	if(x >= 342 && x <= 375) {
+	        		alert("Paleta #2");
+		        }
+		    } 
+
+		    // Paleta #3
+		    if(y >= 141 && y <= 157) {
+	        	if(x >= 395 && x <= 427) {
+	        		alert("Paleta #3");
+		        }
+		    }    
+	    });
+	});
+  </script>
+</head>
+<body>  
+	<div class="container">
+		<div class="text-center mt-3">
+			<a href="#test">
+				<img id="image-detail" src="images/CL3500-1.jpg"/>
+			</a>
+		</div>		
+	</div>
+</body>
+</html>
